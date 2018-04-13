@@ -1,12 +1,7 @@
-FROM node:5
+FROM node:8-alpine
 
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
-
-COPY package.json /usr/src/app/
-RUN npm install
-
-COPY . /usr/src/app
+RUN npm install -g corsproxy-https@1.5.2
 
 EXPOSE 1337
-CMD ["npm", "start"]
+
+CMD ["corsproxy"]
